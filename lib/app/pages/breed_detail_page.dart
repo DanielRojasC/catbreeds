@@ -25,12 +25,13 @@ class BreedDetailPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: deviceHeight(context) * 0.4,
+            Card(
+              elevation: 5,
+              margin: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                borderRadius: const BorderRadius.all(Radius.circular(15)),
               ),
-              child: Container(
-                margin: const EdgeInsets.only(top: 15),
+              child: SizedBox(
                 width: deviceWidth(context),
                 child: Hero(
                   tag: breed.id,
@@ -44,42 +45,48 @@ class BreedDetailPage extends StatelessWidget {
             ),
             Flexible(
               child: Container(
-                width: deviceWidth(context) * 0.9,
-                padding: const EdgeInsets.only(top: 10),
+                margin: EdgeInsets.symmetric(horizontal: 15),
                 child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        breed.description,
-                        style: Styles.basicTextStyle(
-                          16,
-                          fontWeight: FontWeight.normal,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          breed.description,
+                          style: Styles.basicTextStyle(
+                            16,
+                            fontWeight: FontWeight.normal,
+                          ),
+                          textAlign: TextAlign.justify,
                         ),
-                        textAlign: TextAlign.justify,
-                      ),
-                      Divider(),
-                      BreedDetailItemWidget(
-                        title: "Temperament",
-                        content: breed.temperament,
-                      ),
-                      BreedDetailItemWidget(
-                        title: "Origin",
-                        content: breed.origin,
-                      ),
-                      BreedDetailItemWidget(
-                        title: "Inteligence",
-                        content: breed.intelligence.toString(),
-                      ),
-                      BreedDetailItemWidget(
-                        title: "Adaptability",
-                        content: breed.adaptability.toString(),
-                      ),
-                      BreedDetailItemWidget(
-                        title: "Dog Friendly",
-                        content: breed.dogFriendly.toString(),
-                      ),
-                    ],
+                        Divider(),
+                        BreedDetailItemWidget(
+                          title: "Lifespan",
+                          content: "${breed.lifeSpan} years",
+                        ),
+                        BreedDetailItemWidget(
+                          title: "Temperament",
+                          content: breed.temperament,
+                        ),
+                        BreedDetailItemWidget(
+                          title: "Origin",
+                          content: breed.origin,
+                        ),
+                        BreedDetailItemWidget(
+                          title: "Inteligence",
+                          content: breed.intelligence.toString(),
+                        ),
+                        BreedDetailItemWidget(
+                          title: "Adaptability",
+                          content: breed.adaptability.toString(),
+                        ),
+                        BreedDetailItemWidget(
+                          title: "Dog Friendly",
+                          content: breed.dogFriendly.toString(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
