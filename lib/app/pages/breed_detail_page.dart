@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:catbreeds/app/domain/entities/breed_entity.dart';
 import 'package:catbreeds/app/utils/constants/styles.dart';
 import 'package:catbreeds/app/widgets/breed/breed_detail_features_item_widget.dart';
+import 'package:catbreeds/app/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 
 class BreedDetailPage extends StatelessWidget {
@@ -32,8 +34,10 @@ class BreedDetailPage extends StatelessWidget {
                 width: deviceWidth(context),
                 child: Hero(
                   tag: breed.id,
-                  child: Image(
-                    image: NetworkImage(breed.image.url),
+                  child: CachedNetworkImage(
+                    imageUrl: breed.image.url,
+                    placeholder: (context, url) => LoadingWidget(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
               ),

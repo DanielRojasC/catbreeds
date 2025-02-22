@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:catbreeds/app/domain/entities/breed_entity.dart';
 import 'package:catbreeds/app/pages/breed_detail_page.dart';
-import 'package:catbreeds/app/utils/constants/path_constants.dart';
+
 import 'package:catbreeds/app/utils/constants/styles.dart';
 import 'package:catbreeds/app/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +12,18 @@ class BreedListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void _onClickItem(BreedEntity breed) => Navigator.of(context)
-        .push(MaterialPageRoute(builder: (_) => BreedDetailPage(breed: breed)));
+    void _onClickItem(BreedEntity breed) {
+      FocusScope.of(context).requestFocus(new FocusNode());
+      Future.value(
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => BreedDetailPage(breed: breed),
+          ),
+        ),
+      );
+    }
+
+    ;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 15.0),
