@@ -1,0 +1,2 @@
+E:/PROYECTOS/OTROS PROYECTOS/FLUTTER/catbreeds/android/app/.cxx/RelWithDebInfo/502x66hg/x86_64/CMakeFiles/edit_cache.dir
+E:/PROYECTOS/OTROS PROYECTOS/FLUTTER/catbreeds/android/app/.cxx/RelWithDebInfo/502x66hg/x86_64/CMakeFiles/rebuild_cache.dir
